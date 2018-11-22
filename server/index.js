@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const apiMetrics = require('prometheus-api-metrics');
-const db = require('./mongoModel');
+const db = require('./model');
 
 const app = express();
 
@@ -24,13 +24,17 @@ app.get('/homes/:id/nearbyHomes', (req, res) => {
   });
 });
 
-
 app.post('/homes/:id/nearbyHomes', (req, res) => {
-  console.log(req.body);
+  const data = req.body;
+  db.insert(data, (err, response) => {
+    if (err) {
+      res.en(err);
+    } else {
+      res.end(JSON.stringify(response));
+    }
+  });
 });
 
 app.listen(port, () => {
   console.log(`server is running at: http://localhost:${port}`);
 });
-
-//curl -i -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:3003/homes/:id/nearbyHomes {name: "mona" datetime:, status, likes, bathrooms, bedrooms, price, sqft, street, city, state, zipCode, latitude, longitude, image}
