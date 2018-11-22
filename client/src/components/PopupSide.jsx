@@ -22,7 +22,7 @@ const PopupSide = ({ home }) => (
               </h4>
               <span className="home-photo-card-price">
                 $
-                {addCommas(home.homeValue)}
+                {addCommas(home.price)}
                 {' '}
 
               </span>
@@ -30,12 +30,12 @@ const PopupSide = ({ home }) => (
                 <span className="home-photo-card-info">
                   <span>
                     <span className="property-beds">
-                      {home.numberOfBedroom}
+                      {home.bedrooms}
                       {' '}
                     bds
                     </span>
                     <span className="property-baths">
-                      {home.numberOfBathroom}
+                      {home.bathrooms}
                       {' '}
                     ba
                     </span>
@@ -49,7 +49,7 @@ const PopupSide = ({ home }) => (
               </p>
             </div>
           </div>
-          <div className="media-info-date">{home.dateOfPosting.slice(0, -9)}</div>
+          <div className="media-info-date">{home.datetime.slice(0, -9)}</div>
         </div>
       </div>
     </div>

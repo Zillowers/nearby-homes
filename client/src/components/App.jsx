@@ -61,7 +61,7 @@ class App extends Component {
 
   render() {
     const {
-      currIndex, isExpanded, showPopup, list, zipCode, clickedContent,
+      currIndex, isExpanded, showPopup, list, zipcode, clickedContent,
     } = this.state;
 
     return (
@@ -69,7 +69,7 @@ class App extends Component {
         <div className="collapsible-title-inner-layout">
           <CollapsibleTitle
             isExpanded={isExpanded}
-            zipCode={zipCode}
+            zipCode={zipcode}
             toggleCollapsibleTitle={this.toggleCollapsibleTitle}
           />
           {isExpanded ? (

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CollapsibleTitle = ({ isExpanded, zipCode, toggleCollapsibleTitle }) => {
+const CollapsibleTitle = ({ isExpanded, zipcode, toggleCollapsibleTitle }) => {
   let className = 'collapsible-title';
   isExpanded ? (className += '-collapsible') : (className += '-collapsed');
 
@@ -8,7 +8,7 @@ const CollapsibleTitle = ({ isExpanded, zipCode, toggleCollapsibleTitle }) => {
     <>
       <h2 className={className} onClick={toggleCollapsibleTitle}>
         Neighborhood:
-        {zipCode}
+        {zipcode}
       </h2>
     </>
   );

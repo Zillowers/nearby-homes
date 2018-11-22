@@ -1,10 +1,10 @@
 const faker = require('faker');
 const fs = require('fs');
 
-const wstream = fs.createWriteStream('./../file1.tsv');
+const wstream = fs.createWriteStream('./file.tsv');
 
 const fakeDataGenerator = (i) => {
-  for (; i <= 100; i++) {
+  for (; i <= 10000000; i++) {
     const streetName = faker.address.streetName().split(' ').join('-');
     let homeName = `${i}-${streetName}`;
     if (!wstream.write(homeName + '\n')) {

@@ -1,8 +1,8 @@
 const faker = require('faker');
 const fs = require('fs');
-const json = require('./../zipcode.json');
+const json = require('../fakeData/zipcode.json');
 
-const wstream = fs.createWriteStream('./../file2.tsv');
+const wstream = fs.createWriteStream('./file2.tsv');
 
 const createRandomNum = () => Math.floor(Math.random() * 20) + 1;
 const selectRandomPhoto = () => `https://s3-us-west-1.amazonaws.com/fcc-nearby-homes/assets/images/home_${createRandomNum()}.jpg`;
@@ -13,7 +13,7 @@ const createFakeHomes = function createFakeHomes(i) {
       min: 0,
       max: 33143,
     });
-    const dateOfPosting = faker.date.between('2018-05-01', '2018-10-25');
+    const date = faker.date.between('2018-05-01', '2018-10-25');
     const status = faker.random.arrayElement([
       'FOR SALE',
       'FORECLOSURE',
@@ -22,32 +22,32 @@ const createFakeHomes = function createFakeHomes(i) {
       'FOR RENT',
       'SOLD',
     ]);
-    const numberOfLikes =  faker.random.number(200);
-    const numberOfBathroom =  faker.random.number({
+    const numberOfLikes = faker.random.number(200);
+    const bathrooms = faker.random.number({
       min: 0,
       max: 4,
     });
-    const numberOfBedroom = faker.random.number({
+    const bedrooms = faker.random.number({
       min: 0,
       max: 10,
     });
-    const homeValue = faker.random.number({
+    const price = faker.random.number({
       min: 100000,
       max: 4000000,
     });
-    const sqft =  faker.random.number({
+    const sqft = faker.random.number({
       min: 300,
       max: 4000,
     });
-    const streetName = faker.address.streetAddress();
-    const cityName = faker.address.city();
-    const stateName = faker.address.state();
+    const street = faker.address.streetAddress();
+    const city = faker.address.city();
+    const state = faker.address.state();
     const zipCode = json[randomVal]['zipcode'];
     const latitude = json[randomVal]['latitude'];
     const longitude =  json[randomVal]['longitude'];
-    const homeImage = selectRandomPhoto();
+    const image = selectRandomPhoto();
 
-    if (!wstream.write(dateOfPosting + '\t' + status + '\t' + numberOfLikes + '\t' + numberOfBathroom + '\t' + numberOfBedroom + '\t' + homeValue + '\t' + sqft + '\t' + streetName + '\t' + cityName + '\t' + stateName + '\t' + zipCode + '\t' + latitude + '\t' + longitude + '\t' + homeImage + '\n')) {
+    if (!wstream.write(date + '\t' + status + '\t' + numberOfLikes + '\t' + bathrooms + '\t' + bedrooms + '\t' + price + '\t' + sqft + '\t' + street + '\t' + city + '\t' + state + '\t' + zipCode + '\t' + latitude + '\t' + longitude + '\t' + image + '\n')) {
       wstream.once('drain', () => createFakeHomes(i + 1));
       return;
     }

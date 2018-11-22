@@ -4,7 +4,7 @@ import HomePosted from './HomePosted';
 import LikeButton from './LikeButton';
 
 const HomeDetail = ({
-  home, handleContentClick, homeValue, sqft,
+  home, handleContentClick, price, sqft,
 }) => (
   <>
     <LikeButton />
@@ -23,19 +23,19 @@ const HomeDetail = ({
         <p className="home-photo-card-spec">
           <span className="home-photo-card-price">
             $
-            {homeValue}
+            {price}
             {' '}
 
           </span>
           <span className="home-photo-card-spec">
             <span>
               <span className="property-beds">
-                {home.numberOfBedroom}
+                {home.bedrooms}
                 {' '}
                 bds
               </span>
               <span className="property-baths">
-                {home.numberOfBathroom}
+                {home.bathrooms}
                 {' '}
                 ba
               </span>
@@ -49,13 +49,13 @@ const HomeDetail = ({
         </p>
         <p className="home-photo-card-spec-address">
           <span className="home-photo-card-address">
-            {home.streetName}
+            {home.street}
             ,
-            {home.cityName}
+            {home.city}
             ,
-            {home.stateName}
+            {home.state}
             ,
-            {home.zipCode}
+            {home.zipcode}
           </span>
         </p>
       </div>

@@ -14,7 +14,7 @@ const Popup = ({ clickedContent, handleContentCloseClick }) => (
           <div className="media-details_container">
             <div className="media-container js-media-container">
               <div className="media-details-grid">
-                <PopupMain backgroundImg={clickedContent.homeImage} />
+                <PopupMain backgroundImg={clickedContent.image} />
 
                 <PopupSide home={clickedContent} />
               </div>
