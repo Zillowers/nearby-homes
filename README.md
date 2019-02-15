@@ -1,6 +1,6 @@
-# Project Name
+# Nearby Homes
 
-> Project description
+> A nearby homes carousel on a real estate app which given a property finds all nearby houses within 1 km radius. 
 
 ## Related Projects
 
@@ -9,27 +9,11 @@
   - https://github.com/team-frontend/mortgage-calculator
 
 ## Table of Contents
+1. [Development](#development)
+2. [API Endpoints](#api-endpoints)
 
-1. [Usage](#Usage)
-2. [Getting Started](#getting-started)
-3. [Requirements](#requirements)
-4. [Development](#development)
-5. [API Endpoints](#api)
-
-
-## Usage
-
-> Some usage instructions
-
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- MySQL 5.7.23
 
 ## Development
-
 ### Installing Dependencies
 
 From within the root directory:
@@ -54,19 +38,13 @@ Start your application with:
 npm run dev
 ```
 
-## Running Tests
+## API Endpoints
 
-This project is [Jest](https://mochajs.org) and [Enzyme](https://airbnb.io/enzyme/) based test You can run them by `npm run test:watch`
-
-## API Documentation
-
-##### Public End Points
+##### Public Endpoints
 | Description                                                        | Endpoint                           |
 | ------------------------------------------------------------------ | ---------------------------------- |
 | [Get Info of Nearby Homes]                                         | GET /homes/:id/nearbyHomes         |
 | [POST Info of Nearby Home]                                         | POST /homes                        |
-| [UPDATE Info of Nearby Home]                                       | PATCH  /homes/:id/nearbyHomes      |                      |
-| [DELETE Info of Nearby Home]                                       | DELETE /homes/:id/nearbyHomes      |
 
 ## GET /homes/:id/nearbyHomes
 
@@ -140,26 +118,6 @@ Output: <br/>
             "homeImage": "https://s3-us-west-1.amazonaws.com/fcc-nearby-homes/assets/images/home_1.jpg"
         }
 
-## PATCH  /homes/:id/nearbyHomes
-
-Input : <br/>
-        {
-            "numberOfBedroom": 2,
-        }
-
-Output: <br/>
-success
-
-## DELETE  /homes/:id/nearbyHomes
-
-Output: <br/>
-success
-
-Requests home's nearby homes information upon accessing from Zillow's designated endpoint
-
-### Example Request
-
-### Example Response
 
 
 
